@@ -1,0 +1,17 @@
+<body>
+    <script type="text/JavaScript" src="script.js"></script>
+    <h1>Ezhil raj</h1>
+    <div>section 1</div>
+    <div<>section 2</div>
+    <div>section 3</div>
+    <div>section 4</div>
+    <br>
+    <input type="button" onclick="Fun1()" value="S U B M I T">
+</body>
+function Fun1(){
+    var x=document.getElementsByTagName("div");
+    x[0].style.fontFamily="Courier New";
+    x[1].style.color="blue";
+    x[2].style.backgroundColor="blue"
+    x[3].style.fontStyle="italic";
+}
