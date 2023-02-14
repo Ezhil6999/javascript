@@ -1,0 +1,48 @@
+function Validation(){
+    var name=document.getElementById("uname").value;
+    var pass=document.getElementById("pass").value;
+    var age=document.getElementById("age").value;
+    if(name.trim()=="" || pass.trim()==""|| age<=13){
+        alert("Enter the correct value !!!!!!!!!!")
+        return false;
+    }
+    else if(name=="ezhil" && pass=="123"&&age>13){
+        return true;
+    }else{
+        alert("sorry");
+        return false;
+    }
+}
+
+
+
+
+
+
+// var x=document.getElementsByTagName("div");
+// for(var i=0;i<x.length;i++){
+//     x[i].style.fontWeight="Bolder";
+// }
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/JavaScript" src="script.js"></script>
+    <div>
+        <form action="SecondPage.html" onsubmit=" return Validation()">
+            <input type="text" id="uname" placeholder="User Name" required>
+            <input type="password" id="pass" placeholder="Password" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="submit" id="submit" name="S U B M I T">
+        </form>
+    </div>
+</body>
+</html>
