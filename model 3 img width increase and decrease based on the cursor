@@ -1,0 +1,52 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size{
+            width: 300px;
+            height: 300px;
+            
+        }
+    </style>
+</head>
+<body>
+    <script type="text/JavaScript" src="script.js"></script>
+    <img src="Ezhil.JPG" alt="script" id="img1" width="100" onmouseover="increase()" onmouseout="decrease()">
+   <!--<input type="button" value="fadein" onclick="fadein()">
+    <input type="button" value="fadeout" onclick="fadeout()">--> 
+</body>
+</html>
+
+
+
+var width=100;
+var addition=2;
+var intervalID=0;
+ function increase(){
+    clearTimeout(intervalID)
+    intervalID=setInterval(zoomin,10)
+ }
+ function decrease(){
+    clearInterval(intervalID)
+    intervalID=setInterval(zoomout,10)
+ }
+ function zoomin(){
+    if(width<500){
+        width=width+addition;
+        document.getElementById("img1").style.width=width;
+        console.log(width)
+    }
+    else clearInterval(intervalID)
+ }function zoomout(){
+    if(width>100){
+        width=width-addition;
+        document.getElementById("img1").style.width=width;
+        console.log(width)
+
+    }
+    else clearInterval(intervalID)
+ }
