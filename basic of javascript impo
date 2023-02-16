@@ -1,0 +1,62 @@
+console.log("Welcome To Tuter Joes");
+console.log(1234567);
+console.log(18.43);
+console.log(true);
+console.log([56,43,632,23,435,23,243]);
+console.log({fname:'ezhil',age:20});
+console.table({fname:'ezhil',age:20});
+console.error("Custom Sample Error");
+console.warn("error");
+console.clear();
+console.time("Timer");
+for(i=0;i<100;i++){
+    console.log(i);
+}
+console.timeEnd("Timer")
+
+var a=25;
+var b=35;
+console.log(a+b);
+
+
+if(true){
+    let msg="Welcome to tutor joes";
+}console.log(msg);//--->shows error
+if(true){
+    var msg="Welcome to tutor joes";
+}console.log(msg);//--> it will work
+
+if(true){
+    const msg="Welcome to tutor joes";
+}console.log(msg);//--> it will work with in the bracket
+
+var a=45;
+console.log(a)
+var a=30;//--> no error shown
+console.log(a)
+
+let a=45;
+console.log(a)
+let a=30;//--> error shown for redeclaration
+console.log(a)
+
+const a=45;
+console.log(a)
+const a=30;//-->  error shown for redeclaration
+console.log(a)
+
+var a=45;
+console.log(a)
+var a=30;//--> no error shown
+console.log(a)
+
+let b=45;
+console.log(b);
+ b=30;//-->  no shown for redeclaration
+console.log(b);
+
+const c=45;
+console.log(c);
+c=30;//-->  error shown for redeclaration 
+//           impo---> we can not chance the contant value in case of object we can change the value  the object value
+console.log(c)
