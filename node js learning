@@ -1,0 +1,118 @@
+const fs=require("fs");
+fs.writeFileSync("helo.txt",'Hello from node js!');
+
+// out:
+//   create a text file in the directory and 'Hello from node js!' is writen in the text file
+
+var name="ezhil";
+var age=25;
+var hasHobby=true;// true=1,false=0
+console.log(name);
+function displayUser(username,userage,userhashobby){
+   return name+" "+age+" "+hasHobby ;
+}
+console.log(displayUser());//-------->global variables so no need to diclare
+
+var name="ezhil";
+let age=25;
+const hasHobby=true;
+ // true=1,false=0
+ name='ed';//--> no error
+ age =67;
+//hasHobby=false;// error
+console.log(name);
+function displayUser(username,userage,userhashobby){
+   return name+" "+age+" "+hasHobby ;
+}
+console.log(displayUser());
+
+//difference of arrow function and normal function
+var name="Ezhil";
+const person={
+    name:'Logesh',
+    age:23,
+    bio:{name:"Ezhil",DOB:"14-05-2022"},
+    biofun:function(){
+        console.log('hello '+this.name);
+    },
+    bio2:()=>{
+        console.log('hello '+this.name);
+    }
+}
+console.log(person.biofun());
+console.log(person.bio2());
+
+const demo=['sports','cooking',2,{name:'raj'},()=>{console.log("hi")}];
+const hobbies=['sports','cooking'];
+const hobbies2=hobbies;
+hobbies.push("ezhil");
+console.log(hobbies);// both have same out put //['sports','cooking','ezhil']
+console.log(hobbies2);//['sports','cooking','ezhil']
+
+const demo=['sports','cooking',2,{name:'raj'},()=>{console.log("hi")}];
+const hobbies=['sports','cooking'];
+const hobbies2=hobbies.slice();
+hobbies.push("ezhil");
+console.log(hobbies);//['sports','cooking','ezhil']
+console.log(hobbies2);//['sports','cooking']
+
+const demo=['sports','cooking',2,{name:'raj'},()=>{console.log("hi")}];
+const hobbies=['sports','cooking'];
+for(const hobby of hobbies){
+    console.log(hobby);
+}
+
+const demo=['sports','cooking',2,{name:'raj'},()=>{console.log("hi")}];
+const hobbies=['sports','cooking'];
+hobbies.map((hobby)=>{
+  return 'hobby :'+hobby;
+})
+console.log(hobbies.map((hobby)=>{
+    return 'hobby :'+hobby;
+  }));// changes occur with in only
+  console.log(hobbies);//['sports','cooking']; no chnages
+  
+  const hobbies=['sports','cooking'];
+const hobbies1=[hobbies];
+hobbies1.push('ezhil');
+hobbies.push('raj');
+console.log(hobbies);// ['sports', 'cooking', 'raj']
+console.log(hobbies1);// [Array(3), 'ezhil']
+
+const hobbies=['sports','cooking'];
+const hobbies1=[...hobbies];// spread operator
+hobbies1.push('ezhil');
+hobbies.push('raj');
+console.log(hobbies);// ['sports', 'cooking', 'raj']
+console.log(hobbies1);// ['sports', 'cooking', 'ezhil']
+
+const person={name:"ezhil"};
+const student={person};
+console.log(person,student);//{name: 'ezhil'}, {person: {…}}
+
+const person={name:"ezhil"};
+const student={...person};
+console.log(person,student);//{name: 'ezhil'}, {name: 'ezhil'}
+
+const toArray=(...args)=> {    //rest operator like spread operator
+   return args;
+}  
+console.log(toArray(1,2,3,4,5,6,7));//[1, 2, 3, 4, 5, 6, 7]
+
+//destructring
+const person={name:'Ezhil'};
+const name=person.name;
+console.log(name);
+ 
+ same
+ 
+//destructring
+const person={name:'Ezhil'};
+const {name}=person;
+console.log(name);
+
+//destructring
+const person={name:'Ezhil',age:10};
+const {name,age}=person;
+console.log(name);//Ezhil
+console.log(age);// 10
