@@ -116,3 +116,55 @@ const person={name:'Ezhil',age:10};
 const {name,age}=person;
 console.log(name);//Ezhil
 console.log(age);// 10
+
+const hobbies=['Sports','Cooking'];
+const [hobbies1,hobbies2]=hobbies
+console.log(hobbies2);// Cooking
+
+const fetchData=(callback)=>{
+   callback();
+}
+setTimeout(()=>{                 --->Asyncronized code
+fetchData(()=>{
+    console.log(' Data Fetched ');
+})},1)
+console.log('hi');
+
+const fetchData=(callback)=>{
+   callback('Function Executed');
+}
+setTimeout(()=>{
+fetchData((result)=>{
+    console.log(result);
+})},1)
+console.log('hi');
+
+//promise
+let mypromis= new Promise((myResolve,myReject)=>{
+   //myResolve();//success
+   myReject();//fail
+})
+mypromis.then(()=>{
+    console.log('Success');
+}).catch(()=>{
+    console.log('Fail');
+})
+
+//promise
+let mypromis= new Promise((myResolve,myReject)=>{
+    setTimeout(()=>{
+       myResolve('Ezhil');//success
+       //myReject('Raj');//fail
+    },2000)
+})
+mypromis.then((name)=>{
+    return 'name:'+name;
+}).then((name)=>{
+    console.log(name);
+})
+.catch((name)=>{
+    console.log("ez");
+    return 'name:'+name;
+}).catch((name)=>{
+    console.log(name);
+})
