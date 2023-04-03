@@ -168,3 +168,38 @@ mypromis.then((name)=>{
 }).catch((name)=>{
     console.log(name);
 })
+
+
+88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+const http=require('http');
+const fs=require('fs');
+const server=http.createServer(
+    (req,res)=>{
+        const uri=req.url;
+        const method=req.method;
+        if(uri==='/'){
+            res.setHeader('Content-type','text/html');
+            res.write('<html><head>');
+            res.write('<title>Ezhil</title></head>');
+            res.write('<body><form action="/message" method="POST"><input type=text name="name" ><input type=submit></form></body>');
+            res.write('</html>')
+            return res.end();
+        }
+        if(uri==='/message'&& method=='POST'){
+            const list= [];
+            req.on('data',(chunk)=>{
+                list.push(chunk);
+            });
+            req.on('end',()=>{
+                const value=Buffer.concat(list).toString();
+                const splitval=value.split('=');
+                fs.writeFileSync('Hello.txt',splitval[1]);
+            })
+            res.setHeader('Location','/');
+            res.statusCode=302;
+            return res.end();
+        }
+        
+    }
+)
+server.listen(3000);
