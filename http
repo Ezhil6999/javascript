@@ -1,0 +1,45 @@
+const fs=require('fs');
+
+
+const routehandeling=(req,res)=>{
+    const uri=req.url;
+    const method=req.method;
+    if(uri==='/'){
+        res.setHeader('Content-type','text/html');
+        res.write('<html><head>');
+        res.write('<title>Ezhil</title></head>');
+        res.write('<body><form action="/message" method="POST"><input type=text name="name" ><input type=submit></form></body>');
+        res.write('</html>')
+        return res.end();
+    }
+    if(uri==='/message'&& method=='POST'){
+        const list= [];
+        req.on('data',(chunk)=>{
+            list.push(chunk);
+        });
+        req.on('end',()=>{
+            const value=Buffer.concat(list).toString();
+            const splitval=value.split('=');
+            fs.writeFileSync('Hello.txt',splitval[1]);
+        })
+        res.setHeader('Location','/');
+        res.statusCode=302;
+        return res.end();
+    }
+    
+};
+
+module.exports={
+    routehandeling,
+    someText:'hi Ezhil tey to improve your code......!'
+}
+
+
+
+
+const http=require('http');
+const routes=require('./route');
+const server=http.createServer(
+    routes.routehandeling
+)
+server.listen(3000);
